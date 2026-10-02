@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jim Startup's Foreign Car Repair | Auto Repair Shop in Everett, WA</title>
+<meta name="description" content="Jim Startup's Foreign Car Repair — trusted Auto Repair Shop serving Everett, WA. Call (425) 353-6811 for fast, reliable service.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1f2937;line-height:1.6}
+.demo-bar{background:#111827;color:#f9fafb;text-align:center;font-size:12px;padding:8px 12px;letter-spacing:.02em}
+.demo-bar b{color:#fbbf24}
+header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:#020617}
+.logo{width:38px;height:38px;border-radius:10px;background:#1e293b;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.nav nav{display:flex;gap:22px}
+.nav nav a{color:#4b5563;text-decoration:none;font-size:14px;font-weight:600}
+.call-btn{background:#1e293b;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px}
+.hero{background:linear-gradient(135deg,#1e293b,#020617);color:#fff;padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:12px}
+.hero p.sub{font-size:clamp(15px,2.5vw,19px);opacity:.92;max-width:640px;margin:0 auto 8px}
+.stars{color:#fbbf24;font-size:20px;letter-spacing:2px;margin:10px 0 4px}
+.revline{font-size:14px;opacity:.9;margin-bottom:26px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta{background:#ef4444;color:#111827;padding:14px 30px;border-radius:10px;font-weight:800;text-decoration:none;font-size:16px}
+.cta.ghost{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.6)}
+.trust{background:#f8fafc;padding:34px 20px}
+.trust-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:center}
+.trust-item{background:#fff;border-radius:12px;padding:18px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06);font-weight:700;font-size:14px}
+.trust-item span{font-size:26px;display:block;margin-bottom:6px}
+section{padding:60px 20px}
+.wrap{max-width:1000px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:#020617;text-align:center;margin-bottom:10px}
+.sec-sub{text-align:center;color:#6b7280;max-width:620px;margin:0 auto 36px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.svc{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:24px}
+.svc h3{font-size:17px;margin-bottom:6px;color:#020617}
+.svc p{font-size:14px;color:#6b7280}
+.svc .ic{width:44px;height:44px;border-radius:10px;background:#1e293b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.why{background:#f8fafc}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.why-card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.why-card h3{color:#020617;margin-bottom:8px}
+.why-card p{font-size:14px;color:#6b7280}
+.reviews{text-align:center}
+.big-rating{font-size:64px;font-weight:800;color:#020617}
+.review-note{color:#6b7280;max-width:560px;margin:12px auto 0;font-size:15px}
+.booking{background:linear-gradient(135deg,#020617,#1e293b);color:#fff}
+.booking h2{color:#fff}
+.booking .sec-sub{color:rgba(255,255,255,.85)}
+form.book{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:30px;color:#1f2937}
+form.book label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px;color:#374151}
+form.book input,form.book select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:15px}
+form.book button{width:100%;margin-top:22px;background:#1e293b;color:#fff;border:none;padding:15px;border-radius:10px;font-size:17px;font-weight:800;cursor:pointer}
+.form-note{display:none;margin-top:16px;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px;font-size:14px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;text-align:center}
+.contact-grid div{background:#f8fafc;border-radius:12px;padding:24px}
+.contact-grid h3{color:#020617;margin-bottom:6px;font-size:16px}
+footer{background:#111827;color:#9ca3af;text-align:center;padding:28px 20px;font-size:13px}
+footer a{color:#d1d5db}
+.fab{position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:#1e293b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:60}
+@media(max-width:640px){.nav nav{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar">★ <b>DEMO PREVIEW</b> — concept website built for Jim Startup's Foreign Car Repair. Not their real site.</div>
+<header>
+  <div class="nav">
+    <div class="brand"><div class="logo">J</div>Jim Startup's Foreign Car Repair</div>
+    <nav><a href="#services">Services</a><a href="#why">Why Us</a><a href="#reviews">Reviews</a><a href="#book">Book</a></nav>
+    <a class="call-btn" href="tel:+14253536811">📞 (425) 353-6811</a>
+  </div>
+</header>
+<div class="hero">
+  <h1>Auto Repair Shop in Everett, WA</h1>
+  <p class="sub">Fast, reliable Auto Repair Shop service from a local team your neighbors trust. Same-day appointments available.</p>
+  <div class="stars">★★★★★</div>
+  <div class="revline">4.9 rating · 246 Google reviews</div>
+  <div class="cta-row">
+    <a class="cta" href="tel:+14253536811">Call (425) 353-6811</a>
+    <a class="cta ghost" href="#book">Book Online</a>
+  </div>
+</div>
+<div class="trust">
+  <div class="trust-grid">
+    <div class="trust-item"><span>⚡</span>Same-Day Service</div>
+    <div class="trust-item"><span>🛡️</span>Licensed &amp; Insured</div>
+    <div class="trust-item"><span>⭐</span>246 Happy Reviews</div>
+    <div class="trust-item"><span>📍</span>Locally Owned in Everett, WA</div>
+  </div>
+</div>
+<section id="services">
+  <div class="wrap">
+    <h2>Our Services</h2>
+    <p class="sec-sub">Everything your home or business needs from trusted local auto repair shops.</p>
+    <div class="svc-grid"><div class="svc"><div class="ic">✓</div><h3>Oil Changes</h3><p>Professional oil changes done right, backed by our satisfaction guarantee.</p></div><div class="svc"><div class="ic">✓</div><h3>Brake Service</h3><p>Professional brake service done right, backed by our satisfaction guarantee.</p></div><div class="svc"><div class="ic">✓</div><h3>Diagnostics</h3><p>Professional diagnostics done right, backed by our satisfaction guarantee.</p></div><div class="svc"><div class="ic">✓</div><h3>Tires & Alignment</h3><p>Professional tires & alignment done right, backed by our satisfaction guarantee.</p></div><div class="svc"><div class="ic">✓</div><h3>AC Service</h3><p>Professional ac service done right, backed by our satisfaction guarantee.</p></div><div class="svc"><div class="ic">✓</div><h3>State Inspections</h3><p>Professional state inspections done right, backed by our satisfaction guarantee.</p></div></div>
+  </div>
+</section>
+<section id="why" class="why">
+  <div class="wrap">
+    <h2>Why Choose Jim Startup's Foreign Car Repair?</h2>
+    <p class="sec-sub">The reason 246 customers rated us 4.9 stars.</p>
+    <div class="why-grid">
+      <div class="why-card"><h3>Upfront Pricing</h3><p>No surprises. You approve the price before any work begins — in writing.</p></div>
+      <div class="why-card"><h3>Real Local Team</h3><p>We're based right here in Everett, WA, not a call center three states away.</p></div>
+      <div class="why-card"><h3>Guaranteed Work</h3><p>Every job backed by our satisfaction guarantee. If it's not right, we make it right.</p></div>
+    </div>
+  </div>
+</section>
+<section id="reviews" class="reviews">
+  <div class="wrap">
+    <h2>What Neighbors Say</h2>
+    <div class="big-rating">4.9★</div>
+    <p class="review-note">Based on 246 verified Google reviews. A real website turns these reviews into booked jobs — customers read, click, and call.</p>
+  </div>
+</section>
+<section id="book" class="booking">
+  <div class="wrap">
+    <h2>Book Your Appointment</h2>
+    <p class="sec-sub">Pick a time that works for you — we'll confirm within the hour.</p>
+    <form class="book" id="bookForm">
+      <label>Your name</label><input required placeholder="Jane Smith">
+      <label>Phone</label><input required type="tel" placeholder="(555) 123-4567">
+      <label>Service needed</label><select><option>Oil Changes</option><option>Brake Service</option><option>Diagnostics</option><option>Tires & Alignment</option><option>AC Service</option><option>State Inspections</option></select>
+      <label>Preferred date</label><input type="date">
+      <button type="submit">Request Appointment</button>
+      <div class="form-note" id="formNote">📋 This is a demo — on the real site, this request would go straight to Jim Startup's Foreign Car Repair and confirm your slot instantly.</div>
+    </form>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2>Visit or Call Us</h2>
+    <p class="sec-sub">Proudly serving Everett, WA and surrounding areas.</p>
+    <div class="contact-grid">
+      <div><h3>📞 Phone</h3><a href="tel:+14253536811">(425) 353-6811</a></div>
+      <div><h3>📍 Address</h3>3821 Railway Ave, Everett, WA 98201</div>
+      <div><h3>🕐 Hours</h3>Mon–Sat · 8am–6pm<br>Emergency line 24/7</div>
+    </div>
+  </div>
+</section>
+<footer>
+  Jim Startup's Foreign Car Repair · Everett, WA · <a href="tel:+14253536811">(425) 353-6811</a><br>
+  Demo concept preview — built to show what's possible for local auto repair shops.
+</footer>
+<a class="fab" href="tel:+14253536811">📞</a>
+<script>
+document.getElementById('bookForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formNote').style.display='block';});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+</script>
+</body>
+</html>
