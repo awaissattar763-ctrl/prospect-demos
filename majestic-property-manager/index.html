@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majestic Property Solutions — Property Manager (Demo)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+.demo-bar{background:#111827;color:#f9fafb;text-align:center;font-size:12px;padding:9px 12px;letter-spacing:.02em}
+.demo-bar b{color:#fbbf24}
+header{background:linear-gradient(135deg,#065f46,#064e3b);color:#fff;padding:26px 20px;text-align:center}
+header h1{font-size:clamp(22px,4vw,34px);font-weight:800}
+header p{opacity:.85;margin-top:6px;font-size:14px}
+.tabs{max-width:1100px;margin:22px auto 0;padding:0 16px;display:flex;gap:10px}
+.tab{flex:1;text-align:center;padding:13px;border-radius:10px 10px 0 0;background:#e2e8f0;font-weight:700;cursor:pointer;border:none;font-size:15px;color:#475569}
+.tab.active{background:#fff;color:#065f46;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px;background:#fff;border-radius:0 0 12px 12px;box-shadow:0 4px 20px rgba(0,0,0,.06);min-height:420px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card img{width:100%;height:190px;object-fit:cover;display:block}
+.card-body{padding:14px 16px}
+.badge{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-bottom:8px;letter-spacing:.03em}
+.sale{background:#dcfce7;color:#166534}.rent{background:#dbeafe;color:#1d4ed8}
+.card h3{font-size:17px;margin-bottom:4px}
+.loc{color:#64748b;font-size:13px;margin-bottom:8px}
+.price{font-size:19px;font-weight:800;color:#065f46}
+.meta{font-size:13px;color:#64748b;margin-top:6px}
+.admin-login{max-width:380px;margin:40px auto;text-align:center;padding:30px;border:1px solid #e2e8f0;border-radius:12px}
+.admin-login input{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px;margin:10px 0;font-size:15px}
+.hint{font-size:12px;color:#64748b;background:#f8fafc;padding:8px;border-radius:8px;margin-top:8px}
+.btn{background:#065f46;color:#fff;border:none;padding:11px 22px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer}
+.btn:hover{background:#047857}
+.btn-red{background:#dc2626}.btn-red:hover{background:#b91c1c}
+.btn-gray{background:#64748b}.btn-gray:hover{background:#475569}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.form-grid .full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:#475569;display:block;margin-bottom:4px}
+input[type=text],input[type=password],select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #e2e8f0}
+th{color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tbl-img{width:64px;height:44px;object-fit:cover;border-radius:6px}
+.actions button{margin-right:6px;padding:7px 12px;font-size:13px;border-radius:7px;border:none;cursor:pointer;font-weight:600}
+.edit{background:#dbeafe;color:#1d4ed8}.del{background:#fee2e2;color:#b91c1c}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.toolbar h2{font-size:20px}
+.note{background:#fefce8;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px}
+footer{text-align:center;padding:26px;color:#94a3b8;font-size:12px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo-bar">⚠️ <b>DEMO PREVIEW</b> — concept only. Sample data, changes save in this browser only.</div>
+<header>
+<h1>🏢 Majestic Property Solutions</h1>
+<p>Property Management System — Clifton, Karachi</p>
+</header>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('listings')">🏠 Listings</button>
+<button class="tab" onclick="showTab('admin')">🔧 Admin Panel</button>
+</div>
+
+<div class="wrap">
+<!-- LISTINGS -->
+<div id="tab-listings">
+<div class="toolbar"><h2>Available Properties</h2><span id="count" style="color:#64748b;font-size:14px"></span></div>
+<div class="grid" id="grid"></div>
+</div>
+
+<!-- ADMIN -->
+<div id="tab-admin" style="display:none">
+<div id="loginBox" class="admin-login">
+<h2>🔐 Admin Login</h2>
+<p style="color:#64748b;font-size:14px;margin-top:6px">Manage your property listings</p>
+<input type="password" id="pw" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+<div><button class="btn" onclick="doLogin()">Login</button></div>
+<div class="hint">Demo password: <b>admin123</b></div>
+</div>
+
+<div id="adminBox" style="display:none">
+<div class="note">✅ Logged in as admin. Add, edit or delete properties below — the Listings page updates instantly.</div>
+<div class="toolbar"><h2 id="formTitle">➕ Add Property</h2>
+<button class="btn btn-gray" onclick="logout()" style="padding:8px 16px;font-size:13px">Logout</button></div>
+<div class="form-grid">
+<div><label>Title</label><input type="text" id="f-title" placeholder="e.g. 3 Bed Apartment, DHA Phase 5"></div>
+<div><label>Location</label><input type="text" id="f-loc" placeholder="e.g. Clifton Block 4, Karachi"></div>
+<div><label>Price</label><input type="text" id="f-price" placeholder="e.g. Rs 2.8 Crore"></div>
+<div><label>Type</label><select id="f-type"><option value="sale">For Sale</option><option value="rent">For Rent</option></select></div>
+<div><label>Bed / Bath</label><input type="text" id="f-meta" placeholder="e.g. 3 Bed • 2 Bath • 1800 sqft"></div>
+<div><label>Photo</label><select id="f-img">
+<option value="majestic1">Modern apartment</option><option value="majestic2">Family house</option>
+<option value="majestic3">Luxury flat</option><option value="majestic4">Commercial plot</option>
+<option value="majestic5">Sea-view apartment</option><option value="majestic6">Bungalow</option>
+</select></div>
+<div class="full">
+<button class="btn" id="saveBtn" onclick="saveProperty()">Add Property</button>
+<button class="btn btn-gray" id="cancelBtn" onclick="resetForm()" style="display:none;margin-left:8px">Cancel</button>
+</div>
+</div>
+<h2 style="margin:18px 0 6px">📋 All Properties</h2>
+<table><thead><tr><th>Photo</th><th>Title</th><th>Price</th><th>Type</th><th>Actions</th></tr></thead>
+<tbody id="tbl"></tbody></table>
+<div style="margin-top:18px"><button class="btn btn-red" onclick="resetDemo()" style="font-size:13px;padding:8px 16px">Reset demo data</button></div>
+</div>
+</div>
+</div>
+
+<footer>Majestic Property Solutions — demo concept by Awais Sattar. Not a live business site.</footer>
+
+<script>
+const KEY='majestic-demo-properties-v1';
+const IMG=s=>`https://picsum.photos/seed/${s}/640/400`;
+const SEED=[
+{t:'3 Bed Luxury Apartment',loc:'DHA Phase 6, Karachi',price:'Rs 3.2 Crore',type:'sale',meta:'3 Bed • 3 Bath • 2100 sqft',img:'majestic1'},
+{t:'5 Marla House',loc:'Clifton Block 2, Karachi',price:'Rs 85,000 / month',type:'rent',meta:'4 Bed • 3 Bath • 5 Marla',img:'majestic2'},
+{t:'Sea-View Flat',loc:'DHA Phase 8 Creek Marina',price:'Rs 4.5 Crore',type:'sale',meta:'4 Bed • 4 Bath • 2800 sqft',img:'majestic5'}
+];
+let props, editId=null;
+function load(){try{props=JSON.parse(localStorage.getItem(KEY))||null}catch(e){props=null}
+if(!props){props=SEED.map((p,i)=>({...p,id:Date.now()+i}));persist()}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(props))}
+function showTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+event.target.classList.add('active');
+document.getElementById('tab-listings').style.display=n==='listings'?'block':'none';
+document.getElementById('tab-admin').style.display=n==='admin'?'block':'none';}
+function render(){
+const g=document.getElementById('grid');g.innerHTML='';
+document.getElementById('count').textContent=props.length+' properties';
+props.forEach(p=>{const d=document.createElement('div');d.className='card';
+d.innerHTML=`<img src="${IMG(p.img)}" alt="" loading="lazy"><div class="card-body">
+<span class="badge ${p.type}">${p.type==='sale'?'FOR SALE':'FOR RENT'}</span>
+<h3>${esc(p.t)}</h3><div class="loc">📍 ${esc(p.loc)}</div>
+<div class="price">${esc(p.price)}</div><div class="meta">${esc(p.meta)}</div></div>`;g.appendChild(d)});
+const tb=document.getElementById('tbl');tb.innerHTML='';
+props.forEach(p=>{const r=document.createElement('tr');
+r.innerHTML=`<td><img class="tbl-img" src="${IMG(p.img)}" loading="lazy"></td><td><b>${esc(p.t)}</b><br><span style="color:#64748b;font-size:12px">${esc(p.loc)}</span></td><td>${esc(p.price)}</td><td><span class="badge ${p.type}">${p.type}</span></td>
+<td class="actions"><button class="edit" onclick="startEdit(${p.id})">Edit</button><button class="del" onclick="delProp(${p.id})">Delete</button></td>`;tb.appendChild(r)});}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function doLogin(){if(document.getElementById('pw').value==='admin123'){
+document.getElementById('loginBox').style.display='none';document.getElementById('adminBox').style.display='block';}
+else alert('Wrong password. Hint: admin123')}
+function logout(){document.getElementById('adminBox').style.display='none';document.getElementById('loginBox').style.display='block';document.getElementById('pw').value='';resetForm()}
+function saveProperty(){
+const t=v('f-title'),loc=v('f-loc'),price=v('f-price');
+if(!t||!loc||!price){alert('Please fill Title, Location and Price');return}
+const data={t,loc,price,type:v('f-type'),meta:v('f-meta')||'—',img:v('f-img')};
+if(editId){Object.assign(props.find(p=>p.id===editId),data);editId=null}
+else props.unshift({id:Date.now(),...data});
+persist();render();resetForm();alert('✅ Saved! Check the Listings tab.')}
+function v(id){return document.getElementById(id).value.trim()}
+function startEdit(id){const p=props.find(x=>x.id===id);editId=id;
+document.getElementById('f-title').value=p.t;document.getElementById('f-loc').value=p.loc;
+document.getElementById('f-price').value=p.price;document.getElementById('f-type').value=p.type;
+document.getElementById('f-meta').value=p.meta;document.getElementById('f-img').value=p.img;
+document.getElementById('formTitle').textContent='✏️ Edit Property';
+document.getElementById('saveBtn').textContent='Save Changes';
+document.getElementById('cancelBtn').style.display='inline-block';
+window.scrollTo({top:0,behavior:'smooth'})}
+function resetForm(){editId=null;['f-title','f-loc','f-price','f-meta'].forEach(i=>document.getElementById(i).value='');
+document.getElementById('formTitle').textContent='➕ Add Property';
+document.getElementById('saveBtn').textContent='Add Property';
+document.getElementById('cancelBtn').style.display='none'}
+function delProp(id){if(confirm('Delete this property?')){props=props.filter(p=>p.id!==id);persist();render()}}
+function resetDemo(){if(confirm('Reset demo to sample data?')){localStorage.removeItem(KEY);load();render();resetForm()}}
+load();render();
+</script>
+</body>
+</html>
