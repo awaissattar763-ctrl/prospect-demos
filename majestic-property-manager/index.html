@@ -46,6 +46,8 @@ th{color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
 .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .toolbar h2{font-size:20px}
 .note{background:#fefce8;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px}
+.wa-btn{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:11px;border-radius:8px;margin-top:10px;font-size:14px}
+.wa-btn:hover{background:#1da851}
 footer{text-align:center;padding:26px;color:#94a3b8;font-size:12px}
 @media(max-width:640px){.form-grid{grid-template-columns:1fr}}
 </style>
@@ -129,10 +131,12 @@ function render(){
 const g=document.getElementById('grid');g.innerHTML='';
 document.getElementById('count').textContent=props.length+' properties';
 props.forEach(p=>{const d=document.createElement('div');d.className='card';
+const waTxt=encodeURIComponent(`Salam! Mujhe "${p.t}" (${p.loc}, ${p.price}) ke baare mein maloomat chahiye.`);
 d.innerHTML=`<img src="${IMG(p.img)}" alt="" loading="lazy"><div class="card-body">
 <span class="badge ${p.type}">${p.type==='sale'?'FOR SALE':'FOR RENT'}</span>
 <h3>${esc(p.t)}</h3><div class="loc">📍 ${esc(p.loc)}</div>
-<div class="price">${esc(p.price)}</div><div class="meta">${esc(p.meta)}</div></div>`;g.appendChild(d)});
+<div class="price">${esc(p.price)}</div><div class="meta">${esc(p.meta)}</div>
+<a class="wa-btn" target="_blank" href="https://wa.me/923212028654?text=${waTxt}">💬 WhatsApp par rabta karein</a></div>`;g.appendChild(d)});
 const tb=document.getElementById('tbl');tb.innerHTML='';
 props.forEach(p=>{const r=document.createElement('tr');
 r.innerHTML=`<td><img class="tbl-img" src="${IMG(p.img)}" loading="lazy"></td><td><b>${esc(p.t)}</b><br><span style="color:#64748b;font-size:12px">${esc(p.loc)}</span></td><td>${esc(p.price)}</td><td><span class="badge ${p.type}">${p.type}</span></td>
