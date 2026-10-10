@@ -136,7 +136,7 @@ d.innerHTML=`<img src="${IMG(p.img)}" alt="" loading="lazy"><div class="card-bod
 <span class="badge ${p.type}">${p.type==='sale'?'FOR SALE':'FOR RENT'}</span>
 <h3>${esc(p.t)}</h3><div class="loc">📍 ${esc(p.loc)}</div>
 <div class="price">${esc(p.price)}</div><div class="meta">${esc(p.meta)}</div>
-<a class="wa-btn" target="_blank" href="https://wa.me/923212028654?text=${waTxt}">💬 WhatsApp par rabta karein</a></div>`;g.appendChild(d)});
+<a class="wa-btn" target="_blank" href="https://wa.me/923212028654?text=${waTxt}">💬 WhatsApp</a></div>`;g.appendChild(d)});
 const tb=document.getElementById('tbl');tb.innerHTML='';
 props.forEach(p=>{const r=document.createElement('tr');
 r.innerHTML=`<td><img class="tbl-img" src="${IMG(p.img)}" loading="lazy"></td><td><b>${esc(p.t)}</b><br><span style="color:#64748b;font-size:12px">${esc(p.loc)}</span></td><td>${esc(p.price)}</td><td><span class="badge ${p.type}">${p.type}</span></td>
